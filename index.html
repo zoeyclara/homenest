@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HomeNest Rental Application</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F9F6F1;
+    --warm-white: #FDFBF8;
+    --sage: #7A9E7E;
+    --sage-light: #A8C5AC;
+    --sage-dark: #4E7453;
+    --charcoal: #2C2C2C;
+    --mid-gray: #6B6B6B;
+    --light-gray: #E8E4DE;
+    --border: #DDD8D0;
+    --error: #C0392B;
+    --gold: #C9A84C;
+    --shadow-sm: 0 2px 12px rgba(44,44,44,0.07);
+    --shadow-md: 0 8px 32px rgba(44,44,44,0.10);
+    --shadow-lg: 0 20px 60px rgba(44,44,44,0.13);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+  }
+  .logo-mark {
+    width: 38px; height: 38px;
+    background: var(--sage);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-mark svg { width: 22px; height: 22px; fill: white; }
+  .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    letter-spacing: -0.3px;
+  }
+  .brand-name span { color: var(--sage); }
+  .header-badge {
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--sage-dark);
+    background: #EAF2EB;
+    padding: 5px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    background: linear-gradient(135deg, #2C5364 0%, #1a3a4a 50%, #0f2535 100%);
+    color: white;
+    padding: 72px 40px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--sage-light);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+  .hero p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 480px;
+    margin: 0 auto 28px;
+    font-weight: 300;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--sage-light);
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  /* MAIN CONTENT */
+  main { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  /* SECTION CARDS */
+  .section-card {
+    background: var(--warm-white);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    padding: 36px 40px;
+    margin-bottom: 24px;
+    transition: box-shadow 0.2s;
+  }
+  .section-card:hover { box-shadow: var(--shadow-md); }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--light-gray);
+  }
+  .section-icon {
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, #EAF2EB, #D0E8D3);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-icon svg { width: 20px; height: 20px; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+  .section-subtitle { font-size: 0.82rem; color: var(--mid-gray); margin-top: 2px; }
+
+  /* FORM GRID */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .form-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .full-width { grid-column: 1 / -1; }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--mid-gray);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  label .req { color: var(--sage-dark); margin-left: 2px; }
+
+  input, select, textarea {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    background: var(--cream);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 11px 14px;
+    width: 100%;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--sage);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(122,158,126,0.15);
+  }
+  input.error, select.error { border-color: var(--error); }
+  textarea { resize: vertical; min-height: 80px; }
+  select { cursor: pointer; }
+
+  .radio-group { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .radio-opt {
+    display: flex; align-items: center; gap: 8px;
+    cursor: pointer;
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .radio-opt input[type="radio"] {
+    width: 18px; height: 18px;
+    accent-color: var(--sage);
+    flex-shrink: 0;
+  }
+
+  .field-note {
+    font-size: 0.75rem;
+    color: var(--mid-gray);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: -4px;
+  }
+  .field-note svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+  /* PAYMENT SECTION */
+  .payment-card {
+    background: linear-gradient(135deg, #1a3a4a 0%, #0f2535 100%);
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 24px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .payment-card::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: rgba(122,158,126,0.15);
+    border-radius: 50%;
+  }
+  .payment-card .section-header { border-bottom-color: rgba(255,255,255,0.12); }
+  .payment-card .section-title { color: white; }
+  .payment-card .section-subtitle { color: rgba(255,255,255,0.55); }
+  .payment-card .section-icon {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .fee-display {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+  }
+  .fee-label { font-size: 0.9rem; color: rgba(255,255,255,0.65); }
+  .fee-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--sage-light);
+  }
+  .fee-amount sup { font-size: 1rem; vertical-align: super; }
+
+  .payment-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+
+  .pay-method {
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .pay-method:hover { border-color: var(--sage-light); background: rgba(122,158,126,0.1); }
+  .pay-method.active { border-color: var(--sage-light); background: rgba(122,158,126,0.15); }
+  .pay-method-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 12px;
+  }
+  .pay-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .pay-icon.btc { background: #F7931A22; }
+  .pay-icon.gift { background: #E91E6322; }
+  .pay-method-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: white;
+  }
+  .pay-method-desc {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+  }
+
+  .pay-detail { display: none; }
+  .pay-detail.visible { display: block; }
+
+  .btc-address {
+    background: rgba(247,147,26,0.1);
+    border: 1px solid rgba(247,147,26,0.25);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.78rem;
+    font-family: monospace;
+    color: #F7C57A;
+    word-break: break-all;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  .btc-instruction {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+  .payment-card label { color: rgba(255,255,255,0.6); }
+  .payment-card input, .payment-card textarea {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.15);
+    color: white;
+  }
+  .payment-card input::placeholder, .payment-card textarea::placeholder {
+    color: rgba(255,255,255,0.3);
+  }
+  .payment-card input:focus, .payment-card textarea:focus {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--sage-light);
+    box-shadow: 0 0 0 3px rgba(168,197,172,0.15);
+  }
+
+  .pay-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(122,158,126,0.2);
+    border: 1px solid rgba(168,197,172,0.3);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    color: var(--sage-light);
+    margin-bottom: 16px;
+  }
+
+  .disclaimer-box {
+    background: rgba(255,255,255,0.05);
+    border-left: 3px solid rgba(201,168,76,0.6);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin-top: 20px;
+  }
+  .disclaimer-box p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.55;
+  }
+  .disclaimer-box strong { color: var(--gold); }
+
+  /* SUBMIT */
+  .submit-section { text-align: center; padding: 8px 0 16px; }
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--sage);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    padding: 16px 48px;
+    cursor: pointer;
+    transition: all 0.25s;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 20px rgba(78,116,83,0.35);
+  }
+  .submit-btn:hover {
+    background: var(--sage-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(78,116,83,0.45);
+  }
+  .submit-btn:active { transform: translateY(0); }
+  .submit-btn svg { width: 18px; height: 18px; }
+
+  .submit-note {
+    font-size: 0.78rem;
+    color: var(--mid-gray);
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  /* SUCCESS */
+  .success-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .success-overlay.show { display: flex; }
+  .success-modal {
+    background: white;
+    border-radius: 20px;
+    padding: 52px 48px;
+    text-align: center;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+    animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes popIn {
+    from { transform: scale(0.85); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+  .success-icon {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, var(--sage-light), var(--sage));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    box-shadow: 0 8px 24px rgba(122,158,126,0.35);
+  }
+  .success-icon svg { width: 34px; height: 34px; fill: white; }
+  .success-modal h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+  }
+  .success-modal p {
+    color: var(--mid-gray);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+  .success-ref {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 14px 20px;
+    font-size: 0.82rem;
+    color: var(--mid-gray);
+    margin-bottom: 28px;
+  }
+  .success-ref strong { color: var(--charcoal); }
+  .close-success {
+    background: var(--sage);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 13px 36px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .close-success:hover { background: var(--sage-dark); }
+
+  /* ADMIN PANEL */
+  .admin-panel {
+    display: none;
+    position: fixed; inset: 0;
+    background: #0f1923;
+    z-index: 2000;
+    overflow-y: auto;
+    padding: 32px;
+  }
+  .admin-panel.show { display: block; }
+  .admin-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .admin-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: white;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .admin-badge {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    background: rgba(201,168,76,0.2);
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .admin-close {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: white;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .admin-close:hover { background: rgba(255,255,255,0.14); }
+
+  .admin-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .admin-stat {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .admin-stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+  }
+  .admin-stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 4px; }
+
+  .applications-list { display: flex; flex-direction: column; gap: 16px; }
+  .app-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .app-card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .app-name {
+    font-weight: 600; color: white; font-size: 1rem;
+  }
+  .app-meta { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+  .status-pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .status-pending { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+  .status-approved { background: rgba(122,158,126,0.15); color: var(--sage-light); border: 1px solid rgba(122,158,126,0.3); }
+  .status-rejected { background: rgba(192,57,43,0.15); color: #E57373; border: 1px solid rgba(192,57,43,0.3); }
+
+  .app-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .app-detail-item { }
+  .app-detail-label { font-size: 0.7rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.5px; }
+  .app-detail-val { font-size: 0.88rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
+
+  .app-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-approve, .btn-reject {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-approve { background: rgba(122,158,126,0.2); color: var(--sage-light); border: 1px solid rgba(122,158,126,0.3); }
+  .btn-approve:hover { background: var(--sage); color: white; }
+  .btn-reject { background: rgba(192,57,43,0.15); color: #E57373; border: 1px solid rgba(192,57,43,0.25); }
+  .btn-reject:hover { background: rgba(192,57,43,0.3); }
+
+  .log-section { margin-top: 40px; }
+  .log-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 12px;
+  }
+  .log-entries {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 16px;
+    max-height: 220px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.78rem;
+  }
+  .log-entry { color: rgba(255,255,255,0.55); margin-bottom: 5px; line-height: 1.5; }
+  .log-entry .log-time { color: rgba(255,255,255,0.3); margin-right: 8px; }
+  .log-entry.log-info .log-event { color: var(--sage-light); }
+  .log-entry.log-action .log-event { color: var(--gold); }
+  .log-entry.log-warn .log-event { color: #E57373; }
+
+  .admin-login {
+    max-width: 380px;
+    margin: 100px auto 0;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 40px;
+  }
+  .admin-login h2 {
+    font-family: 'Playfair Display', serif;
+    color: white; text-align: center;
+    margin-bottom: 8px;
+  }
+  .admin-login p { color: rgba(255,255,255,0.45); text-align: center; font-size: 0.85rem; margin-bottom: 28px; }
+  .admin-login input {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.12);
+    color: white;
+    margin-bottom: 14px;
+  }
+  .admin-login input::placeholder { color: rgba(255,255,255,0.3); }
+  .admin-login-btn {
+    width: 100%;
+    background: var(--sage);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 13px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 4px;
+  }
+  .admin-login-btn:hover { background: var(--sage-dark); }
+  .admin-login-error { color: #E57373; font-size: 0.82rem; text-align: center; margin-top: 10px; display: none; }
+
+  /* FOOTER */
+  footer {
+    background: var(--warm-white);
+    border-top: 1px solid var(--border);
+    padding: 24px 40px;
+    text-align: center;
+  }
+  footer p { font-size: 0.8rem; color: var(--mid-gray); line-height: 1.7; }
+  footer .admin-link {
+    color: var(--sage);
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 6px;
+    display: inline-block;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    header { padding: 14px 20px; }
+    .hero { padding: 48px 24px 56px; }
+    .hero-stats { gap: 24px; }
+    .section-card { padding: 24px 20px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-grid.cols-3 { grid-template-columns: 1fr 1fr; }
+    .payment-methods { grid-template-columns: 1fr; }
+    .payment-card { padding: 28px 20px; }
+    .success-modal { padding: 36px 28px; }
+    .admin-panel { padding: 20px; }
+    .app-details { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-mark">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+    </svg>
+  </div>
+  <div class="brand-name">Home<span>Nest</span></div>
+  <div class="header-badge">🔒 Secure Application</div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Rental Application Portal</div>
+  <h1>HomeNest Rental Application</h1>
+  <p>Apply to rent your next home بسهولة and securely</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">5min</div>
+      <div class="stat-label">Quick Apply</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">256-bit</div>
+      <div class="stat-label">SSL Encrypted</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24hr</div>
+      <div class="stat-label">Response Time</div>
+    </div>
+  </div>
+</div>
+
+<main>
+<form id="rentalForm" novalidate>
+
+  <!-- PERSONAL INFORMATION -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4E7453" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </div>
+      <div>
+        <div class="section-title">Personal Information</div>
+        <div class="section-subtitle">Your basic identifying details</div>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div class="field full-width">
+        <label>Full Name <span class="req">*</span></label>
+        <input type="text" name="fullName" placeholder="John Michael Smith" required>
+      </div>
+      <div class="field">
+        <label>Date of Birth <span class="req">*</span></label>
+        <input type="date" name="dob" required>
+      </div>
+      <div class="field">
+        <label>Phone Number <span class="req">*</span></label>
+        <input type="tel" name="phone" placeholder="(555) 000-0000" required>
+      </div>
+      <div class="field full-width">
+        <label>Email Address <span class="req">*</span></label>
+        <input type="email" name="email" placeholder="john@example.com" required>
+      </div>
+      <div class="field">
+        <label>Social Security Number <span class="req">*</span></label>
+        <input type="password" name="ssn" placeholder="XXX-XX-XXXX" maxlength="11" required autocomplete="off">
+        <div class="field-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7A9E7E" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Encrypted and stored securely
+        </div>
+      </div>
+      <div class="field">
+        <label>Driver's License / State ID <span class="req">*</span></label>
+        <input type="text" name="license" placeholder="e.g. D1234567" required>
+      </div>
+    </div>
+  </div>
+
+  <!-- CURRENT ADDRESS -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4E7453" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div>
+        <div class="section-title">Current Address</div>
+        <div class="section-subtitle">Where you currently reside</div>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div class="field full-width">
+        <label>Street Address <span class="req">*</span></label>
+        <input type="text" name="streetAddress" placeholder="123 Main Street, Apt 4B" required>
+      </div>
+      <div class="field">
+        <label>City <span class="req">*</span></label>
+        <input type="text" name="city" placeholder="New York" required>
+      </div>
+      <div class="field">
+        <label>State <span class="req">*</span></label>
+        <select name="state" required>
+          <option value="">Select State</option>
+          <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+          <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+          <option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+          <option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option>
+          <option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+          <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+          <option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option>
+          <option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option>
+          <option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+          <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+          <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option>
+          <option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option>
+          <option>Wisconsin</option><option>Wyoming</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>ZIP Code <span class="req">*</span></label>
+        <input type="text" name="zip" placeholder="10001" maxlength="10" required>
+      </div>
+      <div class="field">
+        <label>Length of Stay <span class="req">*</span></label>
+        <input type="text" name="lengthOfStay" placeholder="e.g. 2 years 3 months" required>
+      </div>
+      <div class="field full-width">
+        <label>Reason for Leaving <span class="req">*</span></label>
+        <textarea name="reasonLeaving" placeholder="Please describe your reason for moving..." required></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMPLOYMENT INFORMATION -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4E7453" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+      </div>
+      <div>
+        <div class="section-title">Employment Information</div>
+        <div class="section-subtitle">Your current work details</div>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div class="field">
+        <label>Employer Name <span class="req">*</span></label>
+        <input type="text" name="employerName" placeholder="Acme Corporation" required>
+      </div>
+      <div class="field">
+        <label>Job Title <span class="req">*</span></label>
+        <input type="text" name="jobTitle" placeholder="Software Engineer" required>
+      </div>
+      <div class="field">
+        <label>Monthly Income <span class="req">*</span></label>
+        <input type="text" name="monthlyIncome" placeholder="$5,000" required>
+      </div>
+      <div class="field">
+        <label>Supervisor Name <span class="req">*</span></label>
+        <input type="text" name="supervisorName" placeholder="Jane Doe" required>
+      </div>
+      <div class="field full-width">
+        <label>Supervisor Contact <span class="req">*</span></label>
+        <input type="text" name="supervisorContact" placeholder="Phone or email" required>
+      </div>
+    </div>
+  </div>
+
+  <!-- RENTAL HISTORY -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4E7453" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+      </div>
+      <div>
+        <div class="section-title">Rental History</div>
+        <div class="section-subtitle">Previous landlord and tenancy details</div>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div class="field">
+        <label>Previous Landlord Name <span class="req">*</span></label>
+        <input type="text" name="prevLandlord" placeholder="Robert Johnson" required>
+      </div>
+      <div class="field">
+        <label>Landlord Contact <span class="req">*</span></label>
+        <input type="text" name="landlordContact" placeholder="Phone or email" required>
+      </div>
+      <div class="field">
+        <label>Monthly Rent <span class="req">*</span></label>
+        <input type="text" name="prevRent" placeholder="$1,800" required>
+      </div>
+      <div class="field">
+        <label>Dates of Tenancy <span class="req">*</span></label>
+        <input type="text" name="tenancyDates" placeholder="Jan 2021 – Dec 2023" required>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADDITIONAL INFORMATION -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4E7453" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div>
+        <div class="section-title">Additional Information</div>
+        <div class="section-subtitle">Occupancy details and emergency contact</div>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div class="field">
+        <label>Number of Occupants <span class="req">*</span></label>
+        <input type="number" name="occupants" min="1" max="20" placeholder="2" required>
+      </div>
+      <div class="field">
+        <label>Pets <span class="req">*</span></label>
+        <div class="radio-group" style="margin-top:6px">
+          <label class="radio-opt">
+            <input type="radio" name="pets" value="no" checked onchange="togglePets(this)"> No Pets
+          </label>
+          <label class="radio-opt">
+            <input type="radio" name="pets" value="yes" onchange="togglePets(this)"> Yes, I have pets
+          </label>
+        </div>
+      </div>
+      <div class="field full-width" id="petDetails" style="display:none">
+        <label>Pet Details</label>
+        <textarea name="petDetails" placeholder="Type, breed, weight, age... (e.g. 1 golden retriever, 45 lbs, 3 years old)"></textarea>
+      </div>
+      <div class="field full-width">
+        <label>Emergency Contact <span class="req">*</span></label>
+        <input type="text" name="emergencyContact" placeholder="Name, relationship, phone (e.g. Mary Smith, Sister, (555) 123-4567)" required>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAYMENT SECTION -->
+  <div class="payment-card">
+    <div class="section-header">
+      <div class="section-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      </div>
+      <div>
+        <div class="section-title">Application Fee & Payment</div>
+        <div class="section-subtitle">One-time non-refundable processing fee</div>
+      </div>
+    </div>
+
+    <div class="fee-display">
+      <div>
+        <div class="fee-label">One-Time Application Fee</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);margin-top:3px;">Covers background &amp; credit check</div>
+      </div>
+      <div class="fee-amount"><sup>$</sup>35</div>
+    </div>
+
+    <div class="pay-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Agent-reviewed payment — manual approval within 24 hours
+    </div>
+
+    <div style="font-size:0.82rem;color:rgba(255,255,255,0.55);margin-bottom:16px;">Select your preferred payment method:</div>
+
+    <div class="payment-methods">
+      <!-- Bitcoin -->
+      <div class="pay-method active" id="method-btc" onclick="selectMethod('btc')">
+        <div class="pay-method-header">
+          <div class="pay-icon btc">₿</div>
+          <div>
+            <div class="pay-method-name">Bitcoin</div>
+            <div class="pay-method-desc">Cryptocurrency payment</div>
+          </div>
+        </div>
+        <div class="pay-detail visible" id="detail-btc">
+          <div class="btc-address">bc1q6s678gzwp2ux5j7eymn7trvevl5f5e9l2k5ahx</div>
+          <div class="btc-instruction">Send exactly $35 USD in BTC to the address above. Include your full name in the transaction note. Your application will be reviewed after payment is confirmed.</div>
+          <div class="field" style="margin-top:14px">
+            <label>Transaction ID / TXID</label>
+            <input type="text" name="btcTxid" placeholder="Paste your Bitcoin transaction ID here...">
+          </div>
+        </div>
+      </div>
+
+      <!-- Gift Card -->
+      <div class="pay-method" id="method-gift" onclick="selectMethod('gift')">
+        <div class="pay-method-header">
+          <div class="pay-icon gift">🎁</div>
+          <div>
+            <div class="pay-method-name">Gift Card</div>
+            <div class="pay-method-desc">Visa, Mastercard, Amazon, etc.</div>
+          </div>
+        </div>
+        <div class="pay-detail" id="detail-gift">
+          <div class="btc-instruction" style="margin-bottom:12px">Enter your $35 gift card code below. An agent will manually verify and approve your payment.</div>
+          <div class="field">
+            <label>Gift Card Code</label>
+            <input type="text" name="giftCode" placeholder="Paste gift card code here..." style="font-family:monospace;letter-spacing:1px">
+          </div>
+          <div class="field" style="margin-top:10px">
+            <label>Card Type / Brand</label>
+            <input type="text" name="giftCardType" placeholder="e.g. Visa, Amazon, Google Play...">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disclaimer-box">
+      <p><strong>⚠ Important:</strong> Application fees are processed securely and are non-refundable. Payment is manually reviewed and approved by a HomeNest agent within 24 business hours. You will be contacted by email once your payment and application are verified.</p>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-section">
+    <button type="submit" class="submit-btn">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      Submit Application
+    </button>
+    <div class="submit-note">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Your information is encrypted with 256-bit SSL
+    </div>
+  </div>
+
+</form>
+</main>
+
+<footer>
+  <p>© 2025 HomeNest · All rights reserved · Privacy Policy · Terms of Service</p>
+  <p style="margin-top:4px">Questions? Contact us at <strong>support@homenest.com</strong> or call <strong>(800) 466-3637</strong></p>
+  <span class="admin-link" onclick="openAdmin()">Agent Portal</span>
+</footer>
+
+<!-- SUCCESS MODAL -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-modal">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    </div>
+    <h2>Application Received!</h2>
+    <p>Your application has been received. We will contact you shortly to confirm payment and next steps.</p>
+    <div class="success-ref">
+      Reference Number: <strong id="refNumber">HN-000000</strong><br>
+      Expected response: <strong>Within 24 business hours</strong>
+    </div>
+    <button class="close-success" onclick="closeSuccess()">Done</button>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-panel" id="adminPanel">
+  <!-- LOGIN SCREEN -->
+  <div id="adminLogin">
+    <div class="admin-login">
+      <h2>Agent Portal</h2>
+      <p>Sign in to review and manage rental applications</p>
+      <input type="text" id="adminUser" placeholder="Username" autocomplete="off">
+      <input type="password" id="adminPass" placeholder="Password" autocomplete="off">
+      <button class="admin-login-btn" onclick="doAdminLogin()">Sign In</button>
+      <div class="admin-login-error" id="adminError">Invalid credentials. Please try again.</div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="adminDashboard" style="display:none">
+    <div class="admin-header">
+      <div class="admin-title">
+        HomeNest Agent Dashboard
+        <span class="admin-badge">Admin</span>
+      </div>
+      <button class="admin-close" onclick="closeAdmin()">✕ Close Portal</button>
+    </div>
+
+    <div class="admin-stats">
+      <div class="admin-stat">
+        <div class="admin-stat-val" id="stat-total">0</div>
+        <div class="admin-stat-label">Total Applications</div>
+      </div>
+      <div class="admin-stat">
+        <div class="admin-stat-val" id="stat-pending">0</div>
+        <div class="admin-stat-label">Pending Review</div>
+      </div>
+      <div class="admin-stat">
+        <div class="admin-stat-val" id="stat-approved">0</div>
+        <div class="admin-stat-label">Approved</div>
+      </div>
+      <div class="admin-stat">
+        <div class="admin-stat-val" id="stat-rejected">0</div>
+        <div class="admin-stat-label">Rejected</div>
+      </div>
+    </div>
+
+    <div class="applications-list" id="applicationsList">
+      <p style="color:rgba(255,255,255,0.35);font-size:0.9rem;text-align:center;padding:40px">No applications submitted yet.</p>
+    </div>
+
+    <div class="log-section">
+      <div class="log-title">System Activity Log</div>
+      <div class="log-entries" id="logEntries">
+        <div class="log-entry log-info"><span class="log-time">[SYSTEM]</span><span class="log-event">Admin portal initialized</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---- State ----
+  const apps = [];
+  const logs = [];
+
+  function addLog(type, msg) {
+    const now = new Date();
+    const time = now.toLocaleTimeString('en-US',{hour12:false});
+    logs.unshift({type,time,msg});
+    renderLogs();
+  }
+
+  function renderLogs() {
+    const el = document.getElementById('logEntries');
+    if (!el) return;
+    el.innerHTML = logs.map(l =>
+      `<div class="log-entry log-${l.type}"><span class="log-time">[${l.time}]</span> <span class="log-event">${l.msg}</span></div>`
+    ).join('') || '<div class="log-entry"><span class="log-event">No logs yet.</span></div>';
+  }
+
+  // ---- Payment method toggle ----
+  function selectMethod(method) {
+    ['btc','gift'].forEach(m => {
+      document.getElementById('method-'+m).classList.toggle('active', m === method);
+      document.getElementById('detail-'+m).classList.toggle('visible', m === method);
+    });
+  }
+
+  // ---- Pets toggle ----
+  function togglePets(radio) {
+    document.getElementById('petDetails').style.display = radio.value === 'yes' ? 'block' : 'none';
+  }
+
+  // ---- Form submission ----
+  document.getElementById('rentalForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const inputs = form.querySelectorAll('[required]');
+    let valid = true;
+    inputs.forEach(inp => {
+      inp.classList.remove('error');
+      if (!inp.value.trim()) {
+        inp.classList.add('error');
+        valid = false;
+      }
+    });
+    if (!valid) {
+      const firstError = form.querySelector('.error');
+      if (firstError) firstError.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+
+    // Collect data
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+    const refNum = 'HN-' + Date.now().toString().slice(-6);
+    const payMethod = document.querySelector('.pay-method.active') ?
+      (document.getElementById('method-btc').classList.contains('active') ? 'Bitcoin' : 'Gift Card') : 'Unknown';
+
+    const app = {
+      id: refNum,
+      name: data.fullName || '—',
+      email: data.email || '—',
+      phone: data.phone || '—',
+      income: data.monthlyIncome || '—',
+      employer: data.employerName || '—',
+      payMethod,
+      payRef: payMethod === 'Bitcoin' ? (data.btcTxid || 'Not provided') : (data.giftCode || 'Not provided'),
+      status: 'pending',
+      time: new Date().toLocaleString()
+    };
+    apps.unshift(app);
+    addLog('info', `New application received: ${app.name} (${refNum}) via ${payMethod}`);
+
+    document.getElementById('refNumber').textContent = refNum;
+    document.getElementById('successOverlay').classList.add('show');
+    form.reset();
+    document.getElementById('petDetails').style.display = 'none';
+  });
+
+  function closeSuccess() {
+    document.getElementById('successOverlay').classList.remove('show');
+  }
+
+  // ---- Admin Panel ----
+  function openAdmin() {
+    document.getElementById('adminPanel').classList.add('show');
+    document.getElementById('adminLogin').style.display = 'block';
+    document.getElementById('adminDashboard').style.display = 'none';
+  }
+
+  function closeAdmin() {
+    document.getElementById('adminPanel').classList.remove('show');
+    document.getElementById('adminUser').value = '';
+    document.getElementById('adminPass').value = '';
+    document.getElementById('adminError').style.display = 'none';
+  }
+
+  function doAdminLogin() {
+    const u = document.getElementById('adminUser').value.trim();
+    const p = document.getElementById('adminPass').value.trim();
+    if (u === 'admin' && p === 'homenest2025') {
+      document.getElementById('adminLogin').style.display = 'none';
+      document.getElementById('adminDashboard').style.display = 'block';
+      renderDashboard();
+      addLog('action', `Admin logged in at ${new Date().toLocaleTimeString()}`);
+    } else {
+      document.getElementById('adminError').style.display = 'block';
+    }
+  }
+
+  function renderDashboard() {
+    const total = apps.length;
+    const pending = apps.filter(a => a.status === 'pending').length;
+    const approved = apps.filter(a => a.status === 'approved').length;
+    const rejected = apps.filter(a => a.status === 'rejected').length;
+
+    document.getElementById('stat-total').textContent = total;
+    document.getElementById('stat-pending').textContent = pending;
+    document.getElementById('stat-approved').textContent = approved;
+    document.getElementById('stat-rejected').textContent = rejected;
+
+    const list = document.getElementById('applicationsList');
+    if (apps.length === 0) {
+      list.innerHTML = '<p style="color:rgba(255,255,255,0.35);font-size:0.9rem;text-align:center;padding:40px">No applications submitted yet.</p>';
+      return;
+    }
+
+    list.innerHTML = apps.map(app => `
+      <div class="app-card" id="card-${app.id}">
+        <div class="app-card-header">
+          <div>
+            <div class="app-name">${app.name}</div>
+            <div class="app-meta">Submitted ${app.time} · Ref: ${app.id}</div>
+          </div>
+          <span class="status-pill status-${app.status}">${app.status}</span>
+        </div>
+        <div class="app-details">
+          <div class="app-detail-item"><div class="app-detail-label">Email</div><div class="app-detail-val">${app.email}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Phone</div><div class="app-detail-val">${app.phone}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Employer</div><div class="app-detail-val">${app.employer}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Monthly Income</div><div class="app-detail-val">${app.income}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Payment Method</div><div class="app-detail-val">${app.payMethod}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Payment Ref</div><div class="app-detail-val" style="word-break:break-all;font-size:0.78rem">${app.payRef}</div></div>
+        </div>
+        ${app.status === 'pending' ? `
+        <div class="app-actions">
+          <button class="btn-approve" onclick="updateApp('${app.id}','approved')">✓ Approve Application</button>
+          <button class="btn-reject" onclick="updateApp('${app.id}','rejected')">✗ Reject Application</button>
+        </div>` : `<div style="font-size:0.82rem;color:rgba(255,255,255,0.35)">No further actions available.</div>`}
+      </div>
+    `).join('');
+    renderLogs();
+  }
+
+  function updateApp(id, status) {
+    const app = apps.find(a => a.id === id);
+    if (!app) return;
+    app.status = status;
+    addLog('action', `Application ${id} (${app.name}) marked as ${status}`);
+    renderDashboard();
+  }
+</script>
+</body>
+</html>
